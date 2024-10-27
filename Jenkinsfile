@@ -37,4 +37,17 @@ stage('Docker login and push') {
                   sh 'sudo docker push 9182924985/medicure:latest'
                   }
                 }
-        }    
+        }  
+ stage (' setting up Kubernetes with terraform '){
+            steps{
+
+                dir('terraform_files'){
+                sh 'terraform init'
+                sh 'terraform validate'
+                sh 'terraform apply --auto-approve'
+                sh 'sleep 20'
+                }
+               
+            }
+        }
+
