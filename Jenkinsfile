@@ -17,7 +17,7 @@ sh 'mvn clean install package'
  }
  }
 
- stage('Publish HTML Report'){
+stage('Publish HTML Report'){
 steps{
     publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/medicure/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
  }
